@@ -25,6 +25,8 @@ export default {
     <h1>Craft Showcase</h1>
     <div v-for="craft in crafts" v-bind:key="craft.name">
       <h2>{{ craft.name }}</h2>
+      <h3>{{ craft.description }}</h3>
+      <img class="img-fluid" v-bind:src="craft.image" style="width: 20rem" />
     </div>
   </div>
 </template>
