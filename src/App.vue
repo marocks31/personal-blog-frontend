@@ -26,7 +26,7 @@
         </li>
         <li class="nav-item">
           <!-- change url later  -->
-          <a class="nav-link" href="/logout">Submit Crafts</a>
+          <a class="nav-link" href="/crafts/new">Submit Crafts</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/signup">Sign Up</a>
