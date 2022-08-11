@@ -5,10 +5,28 @@ export default {
     return {
       newCraftParams: {},
       errors: [],
+      imageFile: "",
+      description: "",
+      difficulty: "",
+      materials: "",
+      name: "",
     };
   },
   created: function () {},
   methods: {
+    setFile: function (event) {
+      if (event.target.files.length > 0) {
+        this.imageFile = event.target.files[0];
+      }
+    },
+    submit: function () {
+      var formData = new FormData();
+      formData.append("image_file", this.imageFile);
+      formData.append("", this.description);
+      formData.append("", this.difficulty);
+      formData.append("", this.materials);
+      formData.append("", this.name);
+    },
     createCraft: function () {
       axios
         .post("/crafts", this.newCraftParams)
@@ -26,17 +44,38 @@ export default {
 </script>
 
 <template>
-  <div class="crafts-new">
-    <h1>Submit a new craft</h1>
-    <form action="/posts" method="post" enctype="multipart/form-data" v-on:submit.prevent="createCraft()">
+  <!-- bootstrap -->
+  <form action="/posts" method="post" enctype="multipart/form-data" v-on:submit.prevent="createCraft()">
+    <div class="form-row">
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <input type="text" v-model="newCraftParams.name" placeholder="Craft title" />
-      <input type="text" v-model="newCraftParams.description" placeholder="Craft description" />
-      <label for="quantity">Rate the craft difficulty 1 (easy) to 5 (difficult)</label>
+      <div class="form-group col-md-6">
+        <label for="craftTitle">Craft Title</label>
+        <input
+          type="text"
+          v-model="newCraftParams.name"
+          class="form-control"
+          id="craftTitle"
+          placeholder="Craft Title"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="craftDescription">Description</label>
+        <input
+          type="text"
+          v-model="newCraftParams.description"
+          class="form-control"
+          id="craftDescription"
+          placeholder="Description"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <!-- need to add in label explaining range, align, center-->
+      <label for="craftDifficulty">Difficulty</label>
       <input
-        type="number"
+        type="range"
         v-model="newCraftParams.difficulty"
         placeholder="Craft difficulty"
         id="quantity"
@@ -44,10 +83,31 @@ export default {
         min="1"
         max="5"
       />
-      <input type="text" v-model="newCraftParams.materials" placeholder="Craft materials" />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="craftMaterials">Materials</label>
+      <input type="text" v-model="newCraftParams.materials" class="form-control" placeholder="Craft materials" />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="craftDescription">Image</label>
       <input type="file" name="image_file" placeholder="Craft image" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 
-      <input type="submit" value="Create" />
+  <!-- bootstrap form end -->
+
+  <div class="crafts-new">
+    <form action="/posts" method="post" enctype="multipart/form-data" v-on:submit.prevent="createCraft()">
+      <ul>
+        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+      </ul>
     </form>
   </div>
 </template>
+<style>
+input[type="number"] {
+  width: 200px;
+}
+/* need padding around all inputs, labels */
+</style>
