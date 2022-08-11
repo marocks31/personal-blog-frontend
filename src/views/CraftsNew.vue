@@ -28,7 +28,7 @@ export default {
 <template>
   <div class="crafts-new">
     <h1>Submit a new craft</h1>
-    <form v-on:submit.prevent="createCraft()">
+    <form action="/posts" method="post" enctype="multipart/form-data" v-on:submit.prevent="createCraft()">
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
@@ -45,7 +45,7 @@ export default {
         max="5"
       />
       <input type="text" v-model="newCraftParams.materials" placeholder="Craft materials" />
-      <input type="text" v-model="newCraftParams.image" placeholder="Craft image" />
+      <input type="file" name="image_file" placeholder="Craft image" />
 
       <input type="submit" value="Create" />
     </form>
