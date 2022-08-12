@@ -12,7 +12,14 @@ export default {
       this.craft = response.data;
     });
   },
-  methods: {},
+  methods: {
+    destroyCraft: function (craft) {
+      axios.delete("/crafts/" + craft.id).then((response) => {
+        console.log("craft destroy", response);
+        this.$router.push("/crafts");
+      });
+    },
+  },
 };
 </script>
 <template>
@@ -20,5 +27,8 @@ export default {
     <h2>{{ craft.name }}</h2>
     <img v-bind:src="craft.image" v-bind:alt="craft.name" />
     <p>{{ craft.description }}</p>
+    <router-link v-bind:to="`/crafts/${craft.id}/edit`"></router-link>
+    <button v-on:click="destroyCraft(craft)">Delete</button>
+    <router-link to="/crafts">Back to all</router-link>
   </div>
 </template>
