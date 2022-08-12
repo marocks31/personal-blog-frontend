@@ -44,7 +44,6 @@ export default {
 </script>
 
 <template>
-  <!-- bootstrap -->
   <form action="/posts" method="post" enctype="multipart/form-data" v-on:submit.prevent="createCraft()">
     <div class="form-row">
       <ul>
@@ -90,24 +89,22 @@ export default {
     </div>
     <div class="form-group col-md-6">
       <label for="craftDescription">Image</label>
-      <input type="file" name="image_file" placeholder="Craft image" />
+      <input type="file" name="image_file" placeholder="Craft image" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-
-  <!-- bootstrap form end -->
-
-  <div class="crafts-new">
-    <form action="/posts" method="post" enctype="multipart/form-data" v-on:submit.prevent="createCraft()">
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-    </form>
-  </div>
 </template>
 <style>
 input[type="number"] {
   width: 200px;
+}
+.form-row {
+  padding: 10px;
+  text-align: left;
+}
+.form-group {
+  text-align: left;
+  padding: 10px;
 }
 /* need padding around all inputs, labels */
 </style>
