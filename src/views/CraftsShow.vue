@@ -24,10 +24,11 @@ export default {
 </script>
 <template>
   <div class="crafts-show">
+    <h1>A Closer look</h1>
     <h2>{{ craft.name }}</h2>
     <img v-bind:src="craft.image" v-bind:alt="craft.name" />
     <p>{{ craft.description }}</p>
-    <router-link v-bind:to="`/crafts/${craft.id}/edit`"></router-link>
+    <router-link v-bind:to="`/crafts/${craft.id}/edit`">Edit</router-link>
     <button v-on:click="destroyCraft(craft)">Delete</button>
     <router-link to="/crafts">Back to all</router-link>
   </div>

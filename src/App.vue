@@ -18,7 +18,7 @@ export default {
   <div class="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="#page-top">Craft Stars</a>
+        <a class="navbar-brand" href="#">Craft Stars</a>
         <button
           class="navbar-toggler"
           type="button"

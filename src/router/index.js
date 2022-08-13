@@ -6,6 +6,7 @@ import LogoutView from "../views/LogoutView.vue";
 import CraftsIndex from "..//views/CraftsIndex.vue";
 import CraftsNew from "..//views/CraftsNew.vue";
 import CraftsShow from "..//views/CraftsShow.vue";
+import CraftsEdit from "..//views/CraftsEdit.vue";
 
 const routes = [
   {
@@ -50,6 +51,11 @@ const routes = [
     path: "/crafts/:id",
     name: "crafts-show",
     component: CraftsShow,
+  },
+  {
+    path: "/crafts/:id/edit",
+    name: "crafts-edit",
+    component: CraftsEdit,
   },
 ];
 

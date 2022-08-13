@@ -3,35 +3,29 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newCraftParams: {},
+      newCraft: {},
       errors: [],
       imageFile: "",
-      description: "",
-      difficulty: "",
-      materials: "",
-      name: "",
     };
   },
-  created: function () {},
   methods: {
     setFile: function (event) {
       if (event.target.files.length > 0) {
         this.imageFile = event.target.files[0];
       }
     },
-    submit: function () {
-      var formData = new FormData();
-      formData.append("image_file", this.imageFile);
-      formData.append("", this.description);
-      formData.append("", this.difficulty);
-      formData.append("", this.materials);
-      formData.append("", this.name);
-    },
-    createCraft: function () {
+    createCraft() {
+      var craftForm = new FormData();
+      craftForm.append("image_file", this.imageFile);
+      craftForm.append("description", this.description);
+      craftForm.append("difficulty", this.difficulty);
+      craftForm.append("materials", this.materials);
+      craftForm.append("name", this.name);
+
       axios
-        .post("/crafts", this.newCraftParams)
+        .post("/crafts", craftForm)
         .then((response) => {
-          console.log("crafts create", response);
+          console.log("craft created", response);
           this.$router.push("/crafts");
         })
         .catch((error) => {
@@ -51,19 +45,13 @@ export default {
       </ul>
       <div class="form-group col-md-6">
         <label for="craftTitle">Craft Title</label>
-        <input
-          type="text"
-          v-model="newCraftParams.name"
-          class="form-control"
-          id="craftTitle"
-          placeholder="Craft Title"
-        />
+        <input type="text" v-model="newCraft.name" class="form-control" id="craftTitle" placeholder="Craft Title" />
       </div>
       <div class="form-group col-md-6">
         <label for="craftDescription">Description</label>
         <input
           type="text"
-          v-model="newCraftParams.description"
+          v-model="newCraft.description"
           class="form-control"
           id="craftDescription"
           placeholder="Description"
@@ -75,7 +63,7 @@ export default {
       <label for="craftDifficulty">Difficulty</label>
       <input
         type="range"
-        v-model="newCraftParams.difficulty"
+        v-model="newCraft.difficulty"
         placeholder="Craft difficulty"
         id="quantity"
         name="quantity"
@@ -85,11 +73,18 @@ export default {
     </div>
     <div class="form-group col-md-6">
       <label for="craftMaterials">Materials</label>
-      <input type="text" v-model="newCraftParams.materials" class="form-control" placeholder="Craft materials" />
+      <input type="text" v-model="newCraft.materials" class="form-control" placeholder="Craft materials" />
     </div>
     <div class="form-group col-md-6">
       <label for="craftDescription">Image</label>
-      <input type="file" name="image_file" placeholder="Craft image" class="form-control" />
+      <input
+        type="file"
+        name="image_file"
+        placeholder="Craft image"
+        class="form-control"
+        v-on:change="setFile($event)"
+        ref="fileInput"
+      />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
