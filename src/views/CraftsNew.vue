@@ -38,14 +38,21 @@ export default {
 </script>
 
 <template>
-  <form action="/posts" method="post" enctype="multipart/form-data" v-on:submit.prevent="createCraft()">
-    <div class="form-row">
+  <form v-on:submit.prevent="createCraft()">
+    <div class="form">
+      <!-- changing the div class from form-row to form improved the left alignment -->
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
       <div class="form-group col-md-6">
         <label for="craftTitle">Craft Title</label>
         <input type="text" v-model="newCraft.name" class="form-control" id="craftTitle" placeholder="Craft Title" />
+        <p>
+          <small v-if="newCraft?.name?.length > 0 && newCraft?.name?.length <= 20">
+            Remaining characters: {{ 20 - newCraft?.name?.length }}
+          </small>
+          <small v-if="newCraft?.name?.length > 20" class="text-danger">Craft title can't be over 20 characters.</small>
+        </p>
       </div>
       <div class="form-group col-md-6">
         <label for="craftDescription">Description</label>
@@ -56,9 +63,38 @@ export default {
           id="craftDescription"
           placeholder="Description"
         />
+        <p>
+          <small v-if="newCraft?.description?.length > 0 && newCraft?.description?.length <= 100">
+            Remaining characters: {{ 100 - newCraft?.description?.length }}
+          </small>
+          <small v-if="newCraft?.name?.length > 100" class="text-danger">
+            Craft description can't be over 100 characters.
+          </small>
+        </p>
       </div>
     </div>
-    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="craftMaterials">Materials</label>
+      <input
+        type="text"
+        v-model="newCraft.materials"
+        class="form-control"
+        id="craftDescription"
+        placeholder="Craft materials"
+      />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="craftImage">Image</label>
+      <input
+        type="file"
+        name="image_file"
+        placeholder="Craft image"
+        class="form-control"
+        v-on:change="setFile($event)"
+        ref="fileInput"
+      />
+    </div>
+    <div class="form-group col-md-6">
       <!-- need to add in label explaining range, align, center-->
       <label for="craftDifficulty">Difficulty</label>
       <input
@@ -70,28 +106,19 @@ export default {
         min="1"
         max="5"
       />
+      <p>
+        <small>easy......................</small>
+        <small>challenging</small>
+      </p>
     </div>
-    <div class="form-group col-md-6">
-      <label for="craftMaterials">Materials</label>
-      <input type="text" v-model="newCraft.materials" class="form-control" placeholder="Craft materials" />
-    </div>
-    <div class="form-group col-md-6">
-      <label for="craftDescription">Image</label>
-      <input
-        type="file"
-        name="image_file"
-        placeholder="Craft image"
-        class="form-control"
-        v-on:change="setFile($event)"
-        ref="fileInput"
-      />
-    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </template>
 <style>
 input[type="number"] {
   width: 200px;
+  padding: 20px;
 }
 .form-row {
   padding: 10px;
@@ -99,7 +126,13 @@ input[type="number"] {
 }
 .form-group {
   text-align: left;
-  padding: 10px;
+  padding: 20px;
+}
+label {
+  color: rgb(225, 116, 76);
+}
+p {
+  text-indent: 10%;
 }
 /* need padding around all inputs, labels */
 </style>
