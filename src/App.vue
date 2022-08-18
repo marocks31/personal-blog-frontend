@@ -15,49 +15,48 @@ export default {
 };
 </script>
 <template>
-  <div class="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="#">Craft Stars</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-          aria-controls="navbarResponsive"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="/about">
-                About
-                <!-- <span class="sr-only">(current)</span> -->
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/crafts">Craft Showcase</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/crafts/new">Submit Crafts</a>
-            </li>
-            <li class="nav-item" v-if="!isLoggedIn">
-              <a class="nav-link" href="/signup">Sign Up</a>
-            </li>
-            <li class="nav-item" v-if="!isLoggedIn">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item" v-if="!isLoggedIn">
-              <a class="nav-link" href="/logout">Logout</a>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Craft Stars</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav text-uppercase me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/about">
+              Home
+              <!-- <span class="sr-only">(current)</span> -->
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/crafts">Craft Showcase</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/crafts/new">Submit Crafts</a>
+          </li>
+          <li class="nav-item" v-if="!isLoggedIn">
+            <a class="nav-link" href="/signup">Sign Up</a>
+          </li>
+          <li class="nav-item" v-if="!isLoggedIn">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item" v-if="!isLoggedIn">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
+  <div class="container-fluid mx-auto">
     <router-view />
   </div>
 </template>
