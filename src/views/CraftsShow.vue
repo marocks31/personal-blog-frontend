@@ -25,7 +25,6 @@ export default {
 <template>
   <div class="crafts-show">
     <h1>A Closer look..</h1>
-    <div class="card mx-auto my-4" style="width: 18rem"></div>
     <h2>{{ craft.name }}</h2>
     <img v-bind:src="craft.image" v-bind:alt="craft.name" />
     <p>{{ craft.description }}</p>

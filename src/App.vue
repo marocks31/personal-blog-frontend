@@ -46,11 +46,9 @@ export default {
           <li class="nav-item" v-if="!isLoggedIn">
             <a class="nav-link" href="/signup">Sign Up</a>
           </li>
-          <li class="nav-item" v-if="!isLoggedIn">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item" v-if="!isLoggedIn">
-            <a class="nav-link" href="/logout">Logout</a>
+          <li class="nav-item">
+            <a v-if="!isLoggedIn" class="nav-link" href="/login">Login</a>
+            <a v-else class="nav-link" href="/logout">Logout</a>
           </li>
         </ul>
       </div>
