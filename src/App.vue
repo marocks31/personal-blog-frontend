@@ -21,22 +21,18 @@ export default {
       <button
         class="navbar-toggler"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav text-uppercase me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/about">
-              Home
-              <!-- <span class="sr-only">(current)</span> -->
-            </a>
-          </li>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <!-- need to link home button -->
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
           <li class="nav-item">
             <a class="nav-link" href="/crafts">Craft Showcase</a>
           </li>
@@ -50,7 +46,7 @@ export default {
             <a v-if="!isLoggedIn" class="nav-link" href="/login">Login</a>
             <a v-else class="nav-link" href="/logout">Logout</a>
           </li>
-        </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -71,13 +67,4 @@ export default {
 nav {
   padding: 30px;
 }
-
-/* nav a {
-  font-weight: bold;
-  color: #2c3e50;
-} */
-
-/* nav a.router-link-exact-active {
-  color: #42b983;
-} */
 </style>
