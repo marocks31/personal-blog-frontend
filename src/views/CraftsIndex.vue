@@ -17,6 +17,29 @@ export default {
         this.crafts = response.data;
       });
     },
+    toggleFavorite: function () {
+      if (this.favorited) {
+        this.unfavoriteCraft();
+      } else {
+        this.favoriteCraft();
+      }
+    },
+    favoriteCraft: function () {
+      this.submitted = true;
+      this.$http.post("/favorites", { craft: this.craft }, function () {
+        this.favorited = true;
+        this.submitted = false;
+        this.text = "Unfavorite";
+      });
+    },
+    unfavoriteCraft: function () {
+      this.submitted = true;
+      this.$http.delete("/favorites/" + this.craft, function () {
+        this.favorited = false;
+        this.submitted = false;
+        this.text = "Favorite";
+      });
+    },
   },
 };
 </script>
@@ -38,6 +61,7 @@ export default {
             <h2 class="card-title">{{ craft.name }}</h2>
             <h5 class="card-text">Description: {{ craft.description }}</h5>
             <a v-bind:href="`/crafts/${craft.id}`" class="btn btn-primary">More info</a>
+            <button type="submit" class="btn" v-on:click="toggleFavorite">Favorite</button>
 
             <!-- Button trigger modal -->
             <!-- <a
