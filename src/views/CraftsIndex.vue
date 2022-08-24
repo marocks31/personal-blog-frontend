@@ -5,6 +5,7 @@ export default {
     return {
       crafts: [],
       currentCraft: {},
+      favoriteParams: {},
     };
   },
   created: function () {
@@ -17,29 +18,48 @@ export default {
         this.crafts = response.data;
       });
     },
-    toggleFavorite: function () {
-      if (this.favorited) {
-        this.unfavoriteCraft();
-      } else {
-        this.favoriteCraft();
-      }
+    createFavorite: function (craft) {
+      var favorite = {
+        user_id: 1,
+        craft_id: craft.id,
+        name: craft.name,
+        image: craft.image,
+      };
+      console.log(favorite.name);
+      console.log(favorite.image);
+      axios
+        .post("/favorites", favorite)
+        .then((response) => {
+          console.log("favorite created", response);
+        })
+        .catch((error) => {
+          console.log("favorite create error", error.response);
+          this.errors = error.response.data.errors;
+        });
     },
-    favoriteCraft: function () {
-      this.submitted = true;
-      this.$http.post("/favorites", { craft: this.craft }, function () {
-        this.favorited = true;
-        this.submitted = false;
-        this.text = "Unfavorite";
-      });
-    },
-    unfavoriteCraft: function () {
-      this.submitted = true;
-      this.$http.delete("/favorites/" + this.craft, function () {
-        this.favorited = false;
-        this.submitted = false;
-        this.text = "Favorite";
-      });
-    },
+    // toggleFavorite: function () {
+    //   if (this.favorited) {
+    //     this.unfavoriteCraft();
+    //   } else {
+    //     this.favoriteCraft();
+    //   }
+    // },
+    // favoriteCraft: function () {
+    //   this.submitted = true;
+    //   this.$http.post("/favorites", { craft: this.craft }, function () {
+    //     this.favorited = true;
+    //     this.submitted = false;
+    //     this.text = "Unfavorite";
+    //   });
+    // },
+    // unfavoriteCraft: function () {
+    //   this.submitted = true;
+    //   this.$http.delete("/favorites/" + this.craft, function () {
+    //     this.favorited = false;
+    //     this.submitted = false;
+    //     this.text = "Favorite";
+    //   });
+    // },
   },
 };
 </script>
@@ -61,7 +81,9 @@ export default {
             <h2 class="card-title">{{ craft.name }}</h2>
             <h5 class="card-text">Description: {{ craft.description }}</h5>
             <a v-bind:href="`/crafts/${craft.id}`" class="btn btn-primary">More info</a>
-            <button type="submit" class="btn" v-on:click="toggleFavorite">Favorite</button>
+
+            <!-- favorite -->
+            <button v-on:click="createFavorite(craft)">Favorite</button>
 
             <!-- Button trigger modal -->
             <!-- <a

@@ -39,6 +39,9 @@ export default {
           <li class="nav-item">
             <a class="nav-link" href="/crafts/new">Submit Crafts</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/favorites">Favorites</a>
+          </li>
           <li class="nav-item" v-if="!isLoggedIn">
             <a class="nav-link" href="/signup">Sign Up</a>
           </li>
