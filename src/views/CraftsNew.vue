@@ -8,6 +8,14 @@ export default {
       imageFile: "",
     };
   },
+  // love these lines of code below, great for UX
+  beforeCreate() {
+    let jwt = !!localStorage.jwt;
+    console.log(localStorage.jwt);
+    if (jwt == false) {
+      this.$router.push("/login");
+    }
+  },
   methods: {
     setFile: function (event) {
       if (event.target.files.length > 0) {

@@ -59,7 +59,7 @@ const routes = [
     component: CraftsEdit,
   },
   {
-    path: "/favorites",
+    path: "/favorite_crafts",
     name: "favorites-index",
     component: CraftsFavorite,
   },

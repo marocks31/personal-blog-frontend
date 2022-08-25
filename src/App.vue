@@ -32,7 +32,7 @@ export default {
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <!-- need to link home button -->
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
           <li class="nav-item">
             <a class="nav-link" href="/crafts">Craft Showcase</a>
           </li>
@@ -40,7 +40,7 @@ export default {
             <a class="nav-link" href="/crafts/new">Submit Crafts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/favorites">Favorites</a>
+            <a class="nav-link" href="/favorite_crafts">Favorites</a>
           </li>
           <li class="nav-item" v-if="!isLoggedIn">
             <a class="nav-link" href="/signup">Sign Up</a>
