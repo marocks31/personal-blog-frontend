@@ -11,22 +11,32 @@ export default {
 </script>
 
 <template>
-  <div class="hero-image">
-    <div class="hero-text">
-      <h1>Craft Stars</h1>
-      <p>A place to feel inspired and...</p>
-    </div>
+  <div class="home">
+    <header class="container" id="hero">
+      <img
+        src="https://res.cloudinary.com/dwstndeye/image/upload/v1661564801/Screen_Shot_2022-08-26_at_8.46.06_PM_sz2h4t.png"
+        alt=""
+        style="width: auto"
+      />
+      <div class="hero-text">
+        <h1>Craft Stars</h1>
+        <p>A place to feel inspired and...</p>
+      </div>
+    </header>
   </div>
 </template>
 
 <style>
-.hero-image {
-  background-image: url("https://res.cloudinary.com/dwstndeye/image/upload/v1661358607/Screen_Shot_2022-08-24_at_11.08.05_AM_hjgfva.png");
+#hero {
   height: 50%;
+  position: relative;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  margin: auto;
 }
 
 .hero-text {

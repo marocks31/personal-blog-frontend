@@ -7,6 +7,13 @@ export default {
       errors: [],
     };
   },
+  beforeCreate() {
+    let jwt = !!localStorage.jwt;
+    console.log(localStorage.jwt);
+    if (jwt == false) {
+      this.$router.push("/login");
+    }
+  },
   created: function () {
     this.indexFavorite();
   },
