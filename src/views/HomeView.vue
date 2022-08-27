@@ -11,32 +11,57 @@ export default {
 </script>
 
 <template>
-  <div class="home">
-    <header class="container" id="hero">
-      <img
-        src="https://res.cloudinary.com/dwstndeye/image/upload/v1661564801/Screen_Shot_2022-08-26_at_8.46.06_PM_sz2h4t.png"
-        alt=""
-        style="width: auto"
-      />
-      <div class="hero-text">
-        <h1>Craft Stars</h1>
-        <p>A place to feel inspired and...</p>
-      </div>
-    </header>
+  <div class="parallax"></div>
+  <p>something</p>
+  <div style="height: 1000px; background-color: red; font-size: 36px">
+    Scroll Up and Down this page to see the parallax scrolling effect. This div is just here to enable scrolling. Tip:
+    Try to remove the background-attachment property to remove the scrolling effect.
   </div>
+
+  <!-- <div class="hero">
+    <img
+      src="https://res.cloudinary.com/dwstndeye/image/upload/v1661564801/Screen_Shot_2022-08-26_at_8.46.06_PM_sz2h4t.png"
+      alt="a banner"
+      style="width: auto"
+    />
+    <div class="hero-text">
+      <h1>Craft Stars</h1>
+      <p>A place to feel inspired and...</p>
+    </div>
+    <body>
+      <h1>About Craft Stars</h1>
+    </body>
+  </div> -->
 </template>
 
 <style>
-#hero {
-  height: 50%;
-  position: relative;
+.parallax {
+  /* The image used */
+  background-image: url("https://res.cloudinary.com/dwstndeye/image/upload/v1661564801/Screen_Shot_2022-08-26_at_8.46.06_PM_sz2h4t.png");
+
+  /* Set a specific height */
+  min-height: 500px;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+/* #hero {
+  height: 50%;
+  position: relative;
+
+  /* Create the parallax scrolling effect 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero-text {
@@ -46,5 +71,5 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-}
+} */
 </style>
