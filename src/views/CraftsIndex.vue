@@ -75,15 +75,16 @@ export default {
         v-bind:key="craft.id"
         v-on:click="currentCraft = craft"
       >
-        <div class="card mx-auto my-4" style="width: 18rem">
-          <img v-bind:src="craft.image" class="card-img-top" v-bind:alt="craft.title" />
+        <!-- added h-100 class to make all cards the same height -->
+        <div class="card h-100 mx-auto my-4" style="width: 18rem">
           <div class="card-body">
+            <img v-bind:src="craft.image" class="card-img-top" v-bind:alt="craft.title" style="height: 45%" />
             <h2 class="card-title">{{ craft.name }}</h2>
             <h5 class="card-text">Description: {{ craft.description }}</h5>
-            <a v-bind:href="`/crafts/${craft.id}`" class="btn btn-primary">More info</a>
-
-            <!-- favorite -->
-            <button v-on:click="createFavorite(craft)">Favorite</button>
+            <div class="card-footer">
+              <a v-bind:href="`/crafts/${craft.id}`" class="btn btn-primary">More info</a>
+              <button v-on:click="createFavorite(craft)">Favorite</button>
+            </div>
 
             <!-- Button trigger modal -->
             <!-- <a
@@ -127,3 +128,17 @@ export default {
     </div>
   </div>
 </template>
+
+<style>
+.card-body .btn {
+  background-color: rgb(254, 166, 66);
+}
+.card-body .card-text .btn {
+  padding-top: 100%;
+}
+.card-footer {
+  padding-top: auto;
+  position: relative;
+  padding-bottom: 10%;
+}
+</style>

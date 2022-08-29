@@ -36,3 +36,9 @@ export default {
     </div>
   </div>
 </template>
+
+<style>
+.favorites-new img {
+  height: 100px;
+}
+</style>

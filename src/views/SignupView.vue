@@ -24,7 +24,7 @@
       <p id="min-length" class="password-req not-met">* must be 6 characters or longer</p>
       <p id="max-length" class="password-req">* must be 12 characters or shorter</p>
       <p id="match" class="password-req">* passwords must match</p>
-      <button disabled="disabled">create account</button>
+      <button v-on:click="submit()">create account</button>
     </div>
   </body>
 </template>
@@ -83,7 +83,7 @@ export default {
 <style>
 body {
   margin: 0;
-  background-color: beige;
+  background-color: #eb9486;
 }
 #sign-up-container {
   height: 300px;

@@ -8,6 +8,7 @@ import CraftsNew from "..//views/CraftsNew.vue";
 import CraftsShow from "..//views/CraftsShow.vue";
 import CraftsEdit from "..//views/CraftsEdit.vue";
 import CraftsFavorite from "../views/CraftsFavorite.vue";
+import CraftsComment from "../views/CraftsComment.vue";
 
 const routes = [
   {
@@ -62,6 +63,11 @@ const routes = [
     path: "/favorite_crafts",
     name: "favorites-index",
     component: CraftsFavorite,
+  },
+  {
+    path: "/comment_crafts",
+    name: "comments-index",
+    component: CraftsComment,
   },
 ];
 

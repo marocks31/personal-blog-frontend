@@ -17,7 +17,7 @@ export default {
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Craft Stars</a>
+      <a class="navbar-brand" href="#">Craft Blog</a>
       <button
         class="navbar-toggler"
         type="button"

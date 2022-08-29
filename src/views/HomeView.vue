@@ -12,10 +12,12 @@ export default {
 
 <template>
   <div class="parallax"></div>
-  <p>something</p>
-  <div style="height: 1000px; background-color: red; font-size: 36px">
-    Scroll Up and Down this page to see the parallax scrolling effect. This div is just here to enable scrolling. Tip:
-    Try to remove the background-attachment property to remove the scrolling effect.
+  <div class="about-section">
+    <p>About</p>
+    <div style="height: 1000px; font-size: 36px">
+      Scroll Up and Down this page to see the parallax scrolling effect. This div is just here to enable scrolling. Tip:
+      Try to remove the background-attachment property to remove the scrolling effect.
+    </div>
   </div>
 
   <!-- <div class="hero">
@@ -37,16 +39,19 @@ export default {
 <style>
 .parallax {
   /* The image used */
-  background-image: url("https://res.cloudinary.com/dwstndeye/image/upload/v1661564801/Screen_Shot_2022-08-26_at_8.46.06_PM_sz2h4t.png");
+  background-image: url("https://res.cloudinary.com/dwstndeye/image/upload/v1661719557/IMG_6814_e2xsbj.jpg");
 
   /* Set a specific height */
-  min-height: 500px;
+  min-height: 700px;
 
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.about-section {
+  background-color: #6883ba;
 }
 /* #hero {
   height: 50%;
