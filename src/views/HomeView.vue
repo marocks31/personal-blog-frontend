@@ -13,10 +13,11 @@ export default {
 <template>
   <div class="parallax"></div>
   <div class="about-section">
-    <p>About</p>
-    <div style="height: 1000px; font-size: 36px">
-      Scroll Up and Down this page to see the parallax scrolling effect. This div is just here to enable scrolling. Tip:
-      Try to remove the background-attachment property to remove the scrolling effect.
+    <h1>About</h1>
+    <div style="height: 1000px; font-size: 24px">
+      This is a crafting blog where users can sign up for an account and then post their own crafts & also
+      rate/comment/favorite crafts on the ShowPage. This app uses Ruby on Rails, Vue.js, Bootstrap, the Cloudinary API,
+      HTML, and CSS.
     </div>
   </div>
 
@@ -52,6 +53,10 @@ export default {
 }
 .about-section {
   background-color: #6883ba;
+}
+.about-section h1 {
+  text-shadow: 5px 5px 10px blue;
+  color: white;
 }
 /* #hero {
   height: 50%;

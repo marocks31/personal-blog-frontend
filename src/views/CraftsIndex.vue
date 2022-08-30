@@ -83,7 +83,7 @@ export default {
             <h5 class="card-text">Description: {{ craft.description }}</h5>
             <div class="card-footer">
               <a v-bind:href="`/crafts/${craft.id}`" class="btn btn-primary">More info</a>
-              <button v-on:click="createFavorite(craft)">Favorite</button>
+              <button id="favorite" v-on:click="createFavorite(craft)">Favorite</button>
             </div>
 
             <!-- Button trigger modal -->
@@ -140,5 +140,17 @@ export default {
   padding-top: auto;
   position: relative;
   padding-bottom: 10%;
+}
+.crafts-index h1 {
+  text-shadow: 5px 5px 10px blue;
+}
+.card-title {
+  text-shadow: 5px 5px 10px blue;
+}
+.card-footer .btn:hover {
+  text-shadow: 5px 5px 10px blue;
+}
+.card-footer #favorite:hover {
+  text-shadow: 5px 5px 10px blue;
 }
 </style>

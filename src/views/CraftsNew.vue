@@ -142,5 +142,8 @@ label {
 p {
   text-indent: 10%;
 }
+input[type="range"] {
+  accent-color: pink;
+}
 /* need padding around all inputs, labels */
 </style>

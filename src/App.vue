@@ -70,4 +70,10 @@ export default {
 nav {
   padding: 30px;
 }
+.navbar-brand {
+  text-shadow: 5px 5px 10px blue;
+}
+.nav-item:hover {
+  text-shadow: 5px 5px 10px blue;
+}
 </style>
