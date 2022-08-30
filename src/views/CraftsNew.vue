@@ -137,7 +137,7 @@ input[type="number"] {
   padding: 20px;
 }
 label {
-  color: rgb(225, 116, 76);
+  color: black;
 }
 p {
   text-indent: 10%;
