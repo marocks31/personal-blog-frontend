@@ -31,8 +31,11 @@ export default {
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <!-- need to link home button -->
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <li class="nav-item">
+            <!-- edited home button class -->
+            <a class="nav-link" href="/">Home</a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="/crafts">Craft Showcase</a>
           </li>

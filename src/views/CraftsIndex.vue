@@ -142,13 +142,13 @@ export default {
   padding-bottom: 10%;
 }
 .crafts-index h1 {
-  text-shadow: 5px 5px 10px blue;
+  text-shadow: 5px 5px 10px rgb(235, 173, 213);
 }
 .card-title {
   text-shadow: 5px 5px 10px blue;
 }
 .card-footer .btn:hover {
-  text-shadow: 5px 5px 10px blue;
+  text-shadow: 5px 5px 10px white;
 }
 .card-footer #favorite:hover {
   text-shadow: 5px 5px 10px blue;
