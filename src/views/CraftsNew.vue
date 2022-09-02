@@ -47,6 +47,7 @@ export default {
 
 <template>
   <form v-on:submit.prevent="createCraft()">
+    <h1>Submit a craft</h1>
     <div class="form">
       <!-- changing the div class from form-row to form improved the left alignment -->
       <ul>

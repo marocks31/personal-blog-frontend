@@ -15,49 +15,51 @@ export default {
 };
 </script>
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Craft Blog</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <li class="nav-item">
-            <!-- edited home button class -->
-            <a class="nav-link" href="/">Home</a>
-          </li>
+  <div class="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Craft Blog</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <li class="nav-item">
+              <!-- edited home button class -->
+              <a class="nav-link" href="/">Home</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/crafts">Craft Showcase</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/crafts/new">Submit Crafts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/favorite_crafts">Favorites</a>
-          </li>
-          <li class="nav-item" v-if="!isLoggedIn">
-            <a class="nav-link" href="/signup">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a v-if="!isLoggedIn" class="nav-link" href="/login">Login</a>
-            <a v-else class="nav-link" href="/logout">Logout</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/crafts">Craft Showcase</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/crafts/new">Submit Crafts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/favorite_crafts">Favorites</a>
+            </li>
+            <li class="nav-item" v-if="!isLoggedIn">
+              <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a v-if="!isLoggedIn" class="nav-link" href="/login">Login</a>
+              <a v-else class="nav-link" href="/logout">Logout</a>
+            </li>
+          </div>
         </div>
       </div>
+    </nav>
+    <div class="container-fluid mx-auto">
+      <router-view />
     </div>
-  </nav>
-  <div class="container-fluid mx-auto">
-    <router-view />
   </div>
 </template>
 
