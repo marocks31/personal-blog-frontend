@@ -1,7 +1,8 @@
 <script>
 import axios from "axios";
 import useVuelidate from "@vuelidate/core";
-import { required, email } from "@vuelidate/validators";
+import { required, email, minLength, sameAs } from "@vuelidate/validators";
+// import { notify } from "@kyvg/vue3-notification";
 
 export default {
   setup: function () {
@@ -23,8 +24,8 @@ export default {
       newUserParams: {
         name: { required },
         email: { required, email },
-        password: { required },
-        password_confirmation: { required },
+        password: { required, min: minLength(6) },
+        password_confirmation: { required, sameAsPassword: sameAs(this.newUserParams.password) },
       },
     };
   },
@@ -38,7 +39,14 @@ export default {
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
+          // notify({ text: error.data.errors.error, type: "warn" });
         });
+      // if (!this.name) {
+      //   this.errors.push("Name required.");
+      // }
+      // if (!this.email) {
+      //   this.errors.push("Email required.");
+      // }
     },
   },
 };
@@ -69,6 +77,9 @@ export default {
             v-model="v$.newUserParams.password.$model"
             placeholder="new password"
           />
+          <small v-if="newUserParams?.password?.length > 0 && newUserParams?.password?.length <= 6" class="text-danger">
+            Password must be at least 6 characters.
+          </small>
         </div>
         <div>
           <input
@@ -77,6 +88,9 @@ export default {
             placeholder="confirm password"
             v-model="v$.newUserParams.password_confirmation.$model"
           />
+          <!-- <small v-if="newUserParams?.password? != newUserParams?.password_confirmation?">
+            Passwords do not match.
+          </small> -->
         </div>
         <button v-on:click="submit()" :disabled="v$.newUserParams.$invalid">create account</button>
       </div>
@@ -86,6 +100,7 @@ export default {
         <div class="error-msg">{{ error.$message }}</div>
       </div>
     </div>
+    <notifications />
   </body>
 </template>
 
@@ -95,7 +110,7 @@ body {
   background-color: #eb9486;
 }
 #sign-up-container {
-  height: 300px;
+  height: 400px;
   width: 300px;
   background-color: bisque;
   border: solid chocolate 1px;
