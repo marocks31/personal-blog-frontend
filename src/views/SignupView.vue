@@ -1,14 +1,31 @@
 <script>
 import axios from "axios";
-import { Form, Field } from "vee-validate";
+import useVuelidate from "@vuelidate/core";
+import { required, email } from "@vuelidate/validators";
 
 export default {
+  setup: function () {
+    return { v$: useVuelidate() };
+  },
   data: function () {
     return {
-      newUserParams: {},
+      newUserParams: {
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+      },
       errors: [],
-      Form,
-      Field,
+    };
+  },
+  validations: function () {
+    return {
+      newUserParams: {
+        name: { required },
+        email: { required, email },
+        password: { required },
+        password_confirmation: { required },
+      },
     };
   },
   methods: {
@@ -22,16 +39,6 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
-    },
-    validateEmail(value) {
-      if (!value) {
-        return `'This field is required'`;
-      }
-      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-      if (!regex.test(value)) {
-        return `'This field must be a valid email'`;
-      }
-      return true;
     },
   },
 };
@@ -49,26 +56,36 @@ export default {
         <h3>sign up</h3>
         <div>
           <label>Name:</label>
-          <input type="text" v-model="newUserParams.name" />
+          <input type="text" v-model="v$.newUserParams.name.$model" />
         </div>
         <div>
           <label>Email:</label>
-          <Field name="email" type="email" :rules="validateEmail" v-model="newUserParams.email" />
+          <input name="email" type="email" v-model="v$.newUserParams.email.$model" />
         </div>
         <div>
-          <input id="password-input" type="password" v-model="newUserParams.password" placeholder="new password" />
+          <input
+            id="password-input"
+            type="password"
+            v-model="v$.newUserParams.password.$model"
+            placeholder="new password"
+          />
         </div>
         <div>
           <input
             id="confirm-input"
             type="password"
             placeholder="confirm password"
-            v-model="newUserParams.password_confirmation"
+            v-model="v$.newUserParams.password_confirmation.$model"
           />
         </div>
-        <button v-on:click="submit()">create account</button>
+        <button v-on:click="submit()" :disabled="v$.newUserParams.$invalid">create account</button>
       </div>
     </form>
+    <div :class="{ error: v$.newUserParams.name.$errors.length }">
+      <div class="input-errors" v-for="error of v$.newUserParams.name.$errors" :key="error.$uid">
+        <div class="error-msg">{{ error.$message }}</div>
+      </div>
+    </div>
   </body>
 </template>
 

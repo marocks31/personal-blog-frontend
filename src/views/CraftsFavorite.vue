@@ -31,7 +31,7 @@ export default {
   <div class="favorites-new">
     <h1>Favorites</h1>
     <!-- bootstrap horizontal cards -->
-    <div id="favorite-card" class="card mb-3" style="max-width: 540px">
+    <div id="favorite-card" class="card mb-3" style="max-width: 1400px">
       <div class="row g-0" v-for="favorite in favorites" v-bind:key="favorite.id">
         <div class="col-md-4">
           <img
@@ -66,5 +66,11 @@ export default {
   width: 50%;
   border: 3px solid green;
   padding: 10px;
+}
+.col-md-4 {
+  padding: 50px;
+}
+.row {
+  border-top: 3px solid green;
 }
 </style>

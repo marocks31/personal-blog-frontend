@@ -76,11 +76,11 @@ export default {
         v-on:click="currentCraft = craft"
       >
         <!-- added h-100 class to make all cards the same height -->
-        <div class="card h-100 mx-auto my-4" style="width: 18rem">
+        <div class="card h-100 mx-auto my-4" style="width: 25rem">
           <div class="card-body">
             <img v-bind:src="craft.image" class="card-img-top" v-bind:alt="craft.title" style="height: 45%" />
             <h2 class="card-title">{{ craft.name }}</h2>
-            <h5 class="card-text">Description: {{ craft.description }}</h5>
+            <p class="card-text">Description: {{ craft.description }}</p>
             <div class="card-footer">
               <a v-bind:href="`/crafts/${craft.id}`" class="btn btn-primary">More info</a>
               <button id="favorite" v-on:click="createFavorite(craft)">Favorite</button>
