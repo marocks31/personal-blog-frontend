@@ -34,7 +34,7 @@ export default {
     <h2>Materials:</h2>
     <h4>{{ craft.materials }}</h4>
 
-    <router-link v-bind:to="`/crafts/${craft.id}/edit`">Edit</router-link>
+    <button><router-link v-bind:to="`/crafts/${craft.id}/edit`">Edit</router-link></button>
     <router-link v-bind:to="`/comments/${craft.id}/edit`">Comment</router-link>
     <button v-on:click="destroyCraft(craft)">Delete</button>
     <router-link to="/crafts">Back to all</router-link>
