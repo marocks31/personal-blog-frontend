@@ -1,6 +1,10 @@
 <script>
 import axios from "axios";
+import Popper from "vue3-popper";
 export default {
+  components: {
+    Popper,
+  },
   data: function () {
     return {
       crafts: [],
@@ -83,45 +87,34 @@ export default {
             <p class="card-text">Description: {{ craft.description }}</p>
             <div class="card-footer">
               <a v-bind:href="`/crafts/${craft.id}`" class="btn btn-primary">More info</a>
-              <button id="favorite" v-on:click="createFavorite(craft)">Favorite</button>
-            </div>
-
-            <!-- Button trigger modal -->
-            <!-- <a
-            v-bind:href="`/crafts/${craft.id}`"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#exampleModal"
-          >
-            More info
-          </a> -->
-
-            <!-- Modal -->
-            <!-- <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">...</div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+              <div class="action">
+                <Popper content="Favorited">
+                  <a
+                    data-bs-toggle="modal"
+                    data-bs-target="#px-quick-view"
+                    href="javascript:void(0)"
+                    v-on:click="createFavorite(craft)"
+                    class="btn btn-outline-primary icon-color"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-heart-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                      />
+                    </svg>
+                    <!-- <i class="bi bi-heart-fill"></i> -->
+                  </a>
+                </Popper>
               </div>
+              <!-- <button id="favorite" v-on:click="createFavorite(craft)">Favorite</button> -->
             </div>
-          </div> -->
-            <!-- <router-link v-bind:to="`/crafts/${craft.id}`">More Details</router-link> -->
           </div>
         </div>
       </div>
@@ -152,5 +145,22 @@ export default {
 }
 .card-footer #favorite:hover {
   text-shadow: 5px 5px 10px blue;
+}
+:root {
+  --popper-theme-background-color: rgb(255, 44, 185);
+  --popper-theme-background-color-hover: rgb(255, 44, 185);
+  --popper-theme-text-color: #ffffff;
+  --popper-theme-border-width: 0px;
+  --popper-theme-border-style: solid;
+  --popper-theme-border-radius: 6px;
+  --popper-theme-padding: 9px;
+  --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
+}
+.icon-color {
+  color: rgb(255, 44, 185);
+}
+.icon-color:hover {
+  background-color: rgb(255, 44, 185);
+  color: white;
 }
 </style>

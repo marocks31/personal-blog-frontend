@@ -24,6 +24,14 @@ export default {
         this.favorites = response.data;
       });
     },
+    destroyFavorite: function (favorite) {
+      axios.delete("/favorites/" + favorite.id).then((response) => {
+        console.log("favorite destroyed", response);
+        let index = this.favorites.indexOf(favorite);
+        this.favorites.splice(index, 1);
+        this.$router.push("/favorites");
+      });
+    },
   },
 };
 </script>
@@ -48,6 +56,30 @@ export default {
               <p class="card-text">Description:{{ favorite.description }}</p>
               <p class="card-text">Materials:{{ favorite.materials }}</p>
               <p class="card-text">Difficulty:{{ favorite.difficulty }}</p>
+            </div>
+            <div class="action">
+              Unfavorite
+              <a
+                data-bs-toggle="modal"
+                data-bs-target="#px-quick-view"
+                href="javascript:void(0)"
+                v-on:click="destroyFavorite(favorite)"
+                class="btn btn-outline-primary icon-color"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-heartbreak-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8.931.586 7 3l1.5 4-2 3L8 15C22.534 5.396 13.757-2.21 8.931.586ZM7.358.77 5.5 3 7 7l-1.5 3 1.815 4.537C-6.533 4.96 2.685-2.467 7.358.77Z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
