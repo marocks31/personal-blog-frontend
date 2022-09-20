@@ -81,4 +81,9 @@ nav {
 .nav-item:hover {
   text-shadow: 5px 5px 10px blue;
 }
+.container-fluid {
+  width: 100%;
+  background-size: cover;
+  padding: 0;
+}
 </style>
