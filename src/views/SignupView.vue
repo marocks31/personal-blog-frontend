@@ -107,7 +107,7 @@ export default {
 <style>
 body {
   margin: 0;
-  background-color: #eb9486;
+  background-color: whitesmoke;
 }
 #sign-up-container {
   height: 400px;

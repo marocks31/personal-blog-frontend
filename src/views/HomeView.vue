@@ -38,10 +38,15 @@ export default {
   background-size: cover;
 }
 .about-section {
-  background-color: #6883ba;
+  background-color: white;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .about-section h1 {
+  font-family: "Bungee Shade", cursive;
+}
+
+/* .about-section h1 {
   text-shadow: 5px 5px 10px blue;
   color: white;
-}
+} */
 </style>

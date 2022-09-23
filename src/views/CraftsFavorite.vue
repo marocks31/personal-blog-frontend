@@ -42,12 +42,7 @@ export default {
     <div id="favorite-card" class="card mb-3" style="max-width: 1400px">
       <div class="row g-0" v-for="favorite in favorites" v-bind:key="favorite.id">
         <div class="col-md-4">
-          <img
-            class="img-fluid rounded-start"
-            style="height: 250px"
-            v-bind:src="favorite.image"
-            v-bind:alt="favorite.name"
-          />
+          <img class="img-fluid rounded-start" v-bind:src="favorite.image" v-bind:alt="favorite.name" />
         </div>
         <div class="col-md-8">
           <div>
@@ -92,17 +87,24 @@ export default {
 /* .favorites-new {
  background 
 } */
+.favorites-new h1 {
+  font-family: "Bungee Shade", cursive;
+}
 #favorite-card {
-  background-color: rgb(213, 228, 172);
+  background-color: white;
   margin: auto;
-  width: 50%;
-  border: 3px solid green;
+  width: 80%;
   padding: 10px;
+  font-family: "Roboto Condensed", sans-serif;
 }
 .col-md-4 {
   padding: 50px;
 }
-.row {
-  border-top: 3px solid green;
+.img-fluid {
+  max-width: 100%;
+  height: 50vh;
+}
+.card-title {
+  font-family: "Bungee", cursive;
 }
 </style>

@@ -47,7 +47,7 @@ export default {
 
 <template>
   <form v-on:submit.prevent="createCraft()">
-    <h1>Submit a craft</h1>
+    <h1 id="submit-title">Submit a craft</h1>
     <div class="form">
       <!-- changing the div class from form-row to form improved the left alignment -->
       <ul>
@@ -125,6 +125,9 @@ export default {
   </form>
 </template>
 <style>
+label {
+  font-family: "Roboto Condensed", sans-serif;
+}
 input[type="number"] {
   width: 200px;
   padding: 20px;
@@ -137,14 +140,15 @@ input[type="number"] {
   text-align: left;
   padding: 20px;
 }
-label {
-  color: black;
+#submit-title {
+  font-family: "Bungee Shade", cursive;
 }
 p {
+  font-family: "Roboto Condensed", sans-serif;
   text-indent: 10%;
 }
-input[type="range"] {
-  accent-color: pink;
-}
+/* input[type="range"] {
+  accent-color: rgb(255, 44, 185);
+} */
 /* need padding around all inputs, labels */
 </style>

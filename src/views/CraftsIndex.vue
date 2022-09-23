@@ -124,32 +124,45 @@ export default {
 
 <style>
 .card-body .btn {
-  background-color: rgb(254, 166, 66);
+  background-color: rgb(255, 44, 185);
+  color: white;
 }
 .card-body .card-text .btn {
   padding-top: 100%;
+}
+.card-title {
+  font-family: "Roboto Condensed", sans-serif;
+}
+.card-text {
+  font-family: "Roboto Condensed", sans-serif;
 }
 .card-footer {
   padding-top: auto;
   position: relative;
   padding-bottom: 10%;
+  background-color: white;
 }
 .crafts-index h1 {
-  text-shadow: 5px 5px 10px rgb(235, 173, 213);
+  font-family: "Bungee Shade", cursive;
+  /* color: rgb(255, 44, 185);
+  text-shadow: 1px 1px 3px rgb(255, 44, 185); */
 }
-.card-title {
-  text-shadow: 5px 5px 10px blue;
-}
+/* .card-title {
+  text-shadow: 1px 1px 3px rgb(255, 44, 185);
+} */
 .card-footer .btn:hover {
-  text-shadow: 5px 5px 10px white;
+  text-shadow: 1px 1px 3px rgb(255, 44, 185);
+  background-color: white;
+  color: rgb(255, 44, 185);
+  font-family: "Roboto Condensed", sans-serif;
 }
-.card-footer #favorite:hover {
-  text-shadow: 5px 5px 10px blue;
-}
+/* .card-footer #favorite:hover {
+  text-shadow: 1px 1px 3px rgb(255, 44, 185);
+} */
 :root {
   --popper-theme-background-color: rgb(255, 44, 185);
   --popper-theme-background-color-hover: rgb(255, 44, 185);
-  --popper-theme-text-color: #ffffff;
+  --popper-theme-text-color: black;
   --popper-theme-border-width: 0px;
   --popper-theme-border-style: solid;
   --popper-theme-border-radius: 6px;

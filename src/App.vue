@@ -64,6 +64,8 @@ export default {
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee&family=Bungee+Shade&family=Ewert&family=Major+Mono+Display&family=Reem+Kufi+Fun:wght@400;500;600;700&family=Rubik+Moonrocks&display=swap");
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,13 +76,15 @@ export default {
 
 nav {
   padding: 30px;
+  font-family: "Bungee", cursive;
 }
 .navbar-brand {
-  text-shadow: 5px 5px 10px blue;
+  font-family: "Bungee Shade", cursive;
+  /* text-shadow: 2px 2px 5px blue; */
 }
-.nav-item:hover {
+/* .nav-item:hover {
   text-shadow: 5px 5px 10px blue;
-}
+} */
 .container-fluid {
   width: 100%;
   background-size: cover;
