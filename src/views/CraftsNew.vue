@@ -147,6 +147,9 @@ p {
   font-family: "Roboto Condensed", sans-serif;
   text-indent: 10%;
 }
+::placeholder {
+  font-family: "Roboto Condensed", sans-serif;
+}
 /* input[type="range"] {
   accent-color: rgb(255, 44, 185);
 } */

@@ -17,7 +17,11 @@ export default {
     <div style="height: 1000px; font-size: 24px">
       This is a crafting blog where users can sign up for an account and then post their own crafts & also
       rate/comment/favorite crafts on the ShowPage. This app uses Ruby on Rails, Vue.js, Bootstrap, the Cloudinary API,
-      HTML, and CSS.
+      HTML, and CSS. You can check out my code here:
+      <a href="https://github.com/marocks31/personal-blog-frontend">Front End</a>
+      &
+      <a href="https://github.com/marocks31/craftz">Back End</a>
+      .
     </div>
   </div>
 </template>
@@ -38,7 +42,7 @@ export default {
   background-size: cover;
 }
 .about-section {
-  background-color: white;
+  padding: 10px;
   font-family: "Roboto Condensed", sans-serif;
 }
 .about-section h1 {

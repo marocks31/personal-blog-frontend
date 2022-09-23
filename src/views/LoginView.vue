@@ -44,19 +44,34 @@ export default {
           <label>Password:</label>
           <input type="password" v-model="newSessionParams.password" />
         </div>
-        <input type="submit" value="Submit" />
+        <div class="submit-button">
+          <input type="submit" value="Submit" />
+        </div>
       </form>
     </div>
   </div>
 </template>
 <style>
 .login {
+  font-family: "Roboto Condensed", sans-serif;
   height: 300px;
   width: 300px;
-  background-color: bisque;
+  background-color: rgb(248, 174, 223);
   border: solid chocolate 1px;
   margin: 100px auto;
   padding: 50px;
   text-align: center;
+}
+.login h1 {
+  font-family: "Bungee Shade", cursive;
+  text-shadow: 1px 1px 8px white;
+  font-size: 50px;
+}
+.login label {
+  padding: 5px;
+}
+
+.submit-button {
+  padding: 10px;
 }
 </style>

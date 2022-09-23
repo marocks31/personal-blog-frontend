@@ -80,7 +80,10 @@ nav {
 }
 .navbar-brand {
   font-family: "Bungee Shade", cursive;
-  /* text-shadow: 2px 2px 5px blue; */
+  font-size: 20px;
+  color: black;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
 /* .nav-item:hover {
   text-shadow: 5px 5px 10px blue;

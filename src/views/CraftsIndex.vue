@@ -124,7 +124,7 @@ export default {
 
 <style>
 .card-body .btn {
-  background-color: rgb(255, 44, 185);
+  background-color: rgb(248, 174, 223);
   color: white;
 }
 .card-body .card-text .btn {
@@ -151,17 +151,17 @@ export default {
   text-shadow: 1px 1px 3px rgb(255, 44, 185);
 } */
 .card-footer .btn:hover {
-  text-shadow: 1px 1px 3px rgb(255, 44, 185);
+  /* text-shadow: 1px 1px 3px rgb(255, 44, 185); */
   background-color: white;
-  color: rgb(255, 44, 185);
+  color: rgb(248, 174, 223);
   font-family: "Roboto Condensed", sans-serif;
 }
 /* .card-footer #favorite:hover {
   text-shadow: 1px 1px 3px rgb(255, 44, 185);
 } */
 :root {
-  --popper-theme-background-color: rgb(255, 44, 185);
-  --popper-theme-background-color-hover: rgb(255, 44, 185);
+  --popper-theme-background-color: rgb(248, 174, 223);
+  --popper-theme-background-color-hover: rgb(248, 174, 223);
   --popper-theme-text-color: black;
   --popper-theme-border-width: 0px;
   --popper-theme-border-style: solid;
@@ -170,10 +170,10 @@ export default {
   --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
 }
 .icon-color {
-  color: rgb(255, 44, 185);
+  color: rgb(248, 174, 223);
 }
 .icon-color:hover {
-  background-color: rgb(255, 44, 185);
+  background-color: rgb(248, 174, 223);
   color: white;
 }
 </style>

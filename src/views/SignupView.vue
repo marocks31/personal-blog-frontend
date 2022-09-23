@@ -61,7 +61,7 @@ export default {
   <body>
     <form @submit.prevent="onSubmit">
       <div id="sign-up-container">
-        <h3>sign up</h3>
+        <h3>Sign Up</h3>
         <div>
           <label>Name:</label>
           <input type="text" v-model="v$.newUserParams.name.$model" />
@@ -70,7 +70,7 @@ export default {
           <label>Email:</label>
           <input name="email" type="email" v-model="v$.newUserParams.email.$model" />
         </div>
-        <div>
+        <div id="password">
           <input
             id="password-input"
             type="password"
@@ -81,7 +81,7 @@ export default {
             Password must be at least 6 characters.
           </small>
         </div>
-        <div>
+        <div id="password-confirmation">
           <input
             id="confirm-input"
             type="password"
@@ -109,14 +109,24 @@ body {
   margin: 0;
   background-color: whitesmoke;
 }
+#sign-up-container h3 {
+  font-family: "Bungee Shade", cursive;
+  color: black;
+  font-size: 45px;
+  text-shadow: 1px 1px 8px white;
+}
 #sign-up-container {
-  height: 400px;
+  font-family: "Roboto Condensed", sans-serif;
+  height: 450px;
   width: 300px;
-  background-color: bisque;
+  background-color: rgb(248, 174, 223);
   border: solid chocolate 1px;
   margin: 100px auto;
   padding: 50px;
   text-align: center;
+}
+::placeholder {
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 button {
@@ -130,5 +140,11 @@ button {
 
 .password-req.not-met {
   color: black;
+}
+#password-confirmation {
+  padding: 10px;
+}
+#password {
+  padding: 10px;
 }
 </style>
