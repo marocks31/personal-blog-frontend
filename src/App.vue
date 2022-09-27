@@ -77,6 +77,7 @@ export default {
 nav {
   padding: 30px;
   font-family: "Bungee", cursive;
+  background-color: antiquewhite;
 }
 .navbar-brand {
   font-family: "Bungee Shade", cursive;

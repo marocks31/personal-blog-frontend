@@ -40,8 +40,4 @@ export default {
     <router-link to="/crafts">Back to all</router-link>
   </div>
 </template>
-<style>
-#craft-image {
-  height: 50vh;
-}
-</style>
+<style></style>

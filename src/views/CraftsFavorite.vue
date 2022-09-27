@@ -25,12 +25,19 @@ export default {
       });
     },
     destroyFavorite: function (favorite) {
-      axios.delete("/favorites/" + favorite.id).then((response) => {
-        console.log("favorite destroyed", response);
-        let index = this.favorites.indexOf(favorite);
-        this.favorites.splice(index, 1);
-        this.$router.push("/favorites");
-      });
+      const token = localStorage.getItem("jwt");
+      axios
+        .delete(`/favorites/${favorite.id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log("favorite destroyed", response);
+          let index = this.favorites.indexOf(favorite);
+          this.favorites.splice(index, 1);
+          this.$router.push("/favorites");
+        });
     },
   },
 };
