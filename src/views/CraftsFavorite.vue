@@ -36,7 +36,7 @@ export default {
           console.log("favorite destroyed", response);
           let index = this.favorites.indexOf(favorite);
           this.favorites.splice(index, 1);
-          this.$router.push("/favorites");
+          this.$router.push("/favorite_crafts");
         });
     },
   },
