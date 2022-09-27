@@ -24,19 +24,44 @@ export default {
 </script>
 <template>
   <div class="crafts-show">
-    <h1>A Closer look..</h1>
-    <h2>{{ craft.name }}</h2>
-    <img id="craft-image" v-bind:src="craft.image" v-bind:alt="craft.name" />
-    <h2>Description:</h2>
-    <h4>{{ craft.description }}</h4>
-    <h2>Difficulty:</h2>
-    <h4>{{ craft.difficulty }}</h4>
-    <h2>Materials:</h2>
-    <h4>{{ craft.materials }}</h4>
-
-    <button><router-link v-bind:to="`/crafts/${craft.id}/edit`">Edit</router-link></button>
-    <!-- <router-link v-bind:to="`/comments/${craft.id}/edit`">Comment</router-link> -->
-    <button v-on:click="destroyCraft(craft)">Delete</button>
+    <!-- added h-100 class to make all cards the same height -->
+    <div class="card h-100 mx-auto my-4" style="width: 25rem">
+      <div class="card-body">
+        <img v-bind:src="craft.image" class="card-img-top" v-bind:alt="craft.title" style="height: 45%" />
+        <h2 class="card-title">{{ craft.name }}</h2>
+        <p class="card-text">Description: {{ craft.description }}</p>
+        <p class="card-text">Difficulty: {{ craft.difficulty }}</p>
+        <p class="card-text">Materials: {{ craft.materials }}</p>
+        <div class="card-footer">
+          <div class="action">
+            <Popper content="Favorited">
+              <a
+                data-bs-target="#px-quick-view"
+                href="javascript:void(0)"
+                v-on:click="createFavorite()"
+                class="btn btn-outline-primary icon-color"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-heart-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                  />
+                </svg>
+                <!-- <i class="bi bi-heart-fill"></i> -->
+              </a>
+            </Popper>
+          </div>
+          <!-- <button id="favorite" v-on:click="createFavorite(craft)">Favorite</button> -->
+        </div>
+      </div>
+    </div>
     <router-link to="/crafts">Back to all</router-link>
   </div>
 </template>

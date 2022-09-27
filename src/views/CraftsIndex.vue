@@ -41,29 +41,6 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    // toggleFavorite: function () {
-    //   if (this.favorited) {
-    //     this.unfavoriteCraft();
-    //   } else {
-    //     this.favoriteCraft();
-    //   }
-    // },
-    // favoriteCraft: function () {
-    //   this.submitted = true;
-    //   this.$http.post("/favorites", { craft: this.craft }, function () {
-    //     this.favorited = true;
-    //     this.submitted = false;
-    //     this.text = "Unfavorite";
-    //   });
-    // },
-    // unfavoriteCraft: function () {
-    //   this.submitted = true;
-    //   this.$http.delete("/favorites/" + this.craft, function () {
-    //     this.favorited = false;
-    //     this.submitted = false;
-    //     this.text = "Favorite";
-    //   });
-    // },
   },
 };
 </script>
@@ -79,7 +56,8 @@ export default {
         v-bind:key="craft.id"
         v-on:click="currentCraft = craft"
       >
-        <!-- added h-100 class to make all cards the same height -->
+        <!-- added h-100 class to make all cards the same height
+        removed data-bs-toggle="modal" from favoritedd popper a tag to clean up console errors  -->
         <div class="card h-100 mx-auto my-4" style="width: 25rem">
           <div class="card-body">
             <img v-bind:src="craft.image" class="card-img-top" v-bind:alt="craft.title" style="height: 45%" />
@@ -90,7 +68,6 @@ export default {
               <div class="action">
                 <Popper content="Favorited">
                   <a
-                    data-bs-toggle="modal"
                     data-bs-target="#px-quick-view"
                     href="javascript:void(0)"
                     v-on:click="createFavorite(craft)"
@@ -109,11 +86,9 @@ export default {
                         d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
                       />
                     </svg>
-                    <!-- <i class="bi bi-heart-fill"></i> -->
                   </a>
                 </Popper>
               </div>
-              <!-- <button id="favorite" v-on:click="createFavorite(craft)">Favorite</button> -->
             </div>
           </div>
         </div>
