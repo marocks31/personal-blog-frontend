@@ -29,7 +29,7 @@ export default {
       <div class="card-body">
         <img v-bind:src="craft.image" class="card-img-top" v-bind:alt="craft.title" style="height: 45%" />
         <h2 class="card-title">{{ craft.name }}</h2>
-        <p class="card-text">Description: {{ craft.description }}</p>
+        <p class="card-text">Directions: {{ craft.description }}</p>
         <p class="card-text">Difficulty: {{ craft.difficulty }}</p>
         <p class="card-text">Materials: {{ craft.materials }}</p>
         <div class="card-footer">

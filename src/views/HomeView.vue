@@ -15,13 +15,23 @@ export default {
   <div class="about-section">
     <h1>About</h1>
     <div style="height: 1000px; font-size: 24px">
-      This is a crafting blog where users can sign up for an account and then post their own crafts & also
-      rate/comment/favorite crafts on the ShowPage. This app uses Ruby on Rails, Vue.js, Bootstrap, the Cloudinary API,
-      HTML, and CSS. You can check out my code here:
-      <a href="https://github.com/marocks31/personal-blog-frontend">Front End</a>
-      &
-      <a href="https://github.com/marocks31/craftz">Back End</a>
-      .
+      <p>
+        <br />
+        This is a crafting blog where users can sign up for an account and then post their own crafts & also
+        rate/comment/favorite crafts on the ShowPage. This app uses Ruby on Rails, Vue.js, Bootstrap, the Cloudinary
+        API, HTML, and CSS. You can check out my code here:
+        <a href="https://github.com/marocks31/personal-blog-frontend">Front End</a>
+        &
+        <a href="https://github.com/marocks31/craftz">Back End</a>
+        .
+      </p>
+      <p>
+        <br />
+        This craft blog also showcases some homemade crafts from Molly and friends. Each craft has a set of
+        instructions, materials to consider using, and a difficulty rating. If you find a craft you'd like to save for
+        later you can add it to your favorites.
+      </p>
+
       <div class="container">
         <!-- bootstrap individual .carsousel-item interval -->
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -42,9 +52,9 @@ export default {
             </div>
             <div class="carousel-item" data-bs-interval="1500">
               <img
-                src="https://res.cloudinary.com/dwstndeye/image/upload/v1660405217/FAC3F55E-1D73-41AE-ADCF-2D72EA3894A8_1_105_c_fuig8b.jpg"
+                src="https://res.cloudinary.com/dwstndeye/image/upload/v1664297021/E16954A9-28A3-4C4A-A601-1F8238ABD721_1_105_c_vdjdkl.jpg"
                 class="d-block w-100"
-                alt="A greeting card with a hand drawn Garfield on it."
+                alt="A colorful table with different colored rectangles there is an adorable dog in the background too."
               />
             </div>
           </div>
@@ -90,9 +100,13 @@ export default {
 .about-section {
   padding: 10px;
   font-family: "Roboto Condensed", sans-serif;
+  margin-left: 0;
+  text-align: left;
+  text-indent: 0 !important;
 }
 .about-section h1 {
   font-family: "Bungee Shade", cursive;
+  text-align: center;
 }
 #carouselExampleInterval {
   /* margin-left: auto;

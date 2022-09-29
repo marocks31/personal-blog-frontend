@@ -46,10 +46,15 @@ export default {
   <div class="favorites-new">
     <h1>Favorites</h1>
     <!-- bootstrap horizontal cards -->
-    <div id="favorite-card" class="card mb-3" style="max-width: 1400px">
+    <div id="favorite-card" class="card mb-3" style="max-width: 100vw">
       <div class="row g-0" v-for="favorite in favorites" v-bind:key="favorite.id">
         <div class="col-md-4">
-          <img class="img-fluid rounded-start" v-bind:src="favorite.image" v-bind:alt="favorite.name" />
+          <img
+            class="img-fluid rounded-start"
+            v-bind:src="favorite.image"
+            v-bind:alt="favorite.name"
+            style="min-width: 25vw"
+          />
         </div>
         <div class="col-md-8">
           <div>
@@ -113,5 +118,8 @@ export default {
 }
 .card-title {
   font-family: "Bungee", cursive;
+}
+.card-body .card-text {
+  padding: 20px;
 }
 </style>
